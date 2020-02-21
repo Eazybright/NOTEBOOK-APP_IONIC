@@ -1,0 +1,7 @@
+{
+  "name": "notebook-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
