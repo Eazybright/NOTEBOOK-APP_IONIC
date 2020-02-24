@@ -1,17 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      ADD NOTE
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col>
+        <ion-text>Add your note</ion-text>
+      </ion-col>
+    </ion-row>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-row>
+      <form #noteForm="ngForm" (ngSubmit)="addNote(noteForm)">
+        <ion-col size="12">
+          <div id="item-input">
+            <ion-item lines="none">
+              <ion-label position="floating" class="label" margin>Title
+              </ion-label>
+              <ion-input type="text" name="title" [(ngModel)]="title" #dtitle="ngModel" placeholder="Your title"
+                required>
+              </ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating" class="label" margin>Description</ion-label>
+              <ion-textarea rows="6" cols="20" [(ngModel)]="description" #ddesc="ngModel"
+                placeholder="Enter your notes here..." name="description" required></ion-textarea>
+            </ion-item>
+
+            <ion-button size="small" type="submit" expand="block" [disabled]="dtitle.invalid || ddesc.invalid"
+              class="button" margin>
+              <ion-spinner *ngIf="loader"></ion-spinner>
+              <ion-icon name="pencil"></ion-icon> Add Note
+            </ion-button>
+          </div>
+        </ion-col>
+      </form>
+    </ion-row>
+  </ion-grid>
 </ion-content>

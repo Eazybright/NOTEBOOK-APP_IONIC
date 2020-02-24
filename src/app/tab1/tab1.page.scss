@@ -1,3 +1,7 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+.notes p:first-child {
+  font-weight: bold;
+}
