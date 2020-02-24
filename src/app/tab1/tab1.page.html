@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      NOTES
+      NOTEBOOK APP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -21,7 +21,7 @@
           <p>
             <ion-icon name="alarm"></ion-icon> {{notes.date}}
           </p>
-          <ion-button>Read</ion-button>
+          <ion-button (click)="noteDetails(notes)">Read</ion-button>
         </div>
       </ion-col>
     </ion-row>

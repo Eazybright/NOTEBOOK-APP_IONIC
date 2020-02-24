@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Plugins } from "@capacitor/core";
 import { ToastController } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 const { Storage } = Plugins;
 
@@ -20,7 +21,10 @@ export class Tab2Page implements OnInit {
   today = new Date().toLocaleString();
   Notes = [];
 
-  constructor(public toastController: ToastController) {}
+  constructor(
+    public toastController: ToastController,
+    private router: Router
+  ) {}
 
   async presentToast(successMessage) {
     const toast = await this.toastController.create({
@@ -67,7 +71,8 @@ export class Tab2Page implements OnInit {
     this.presentToast("Note saved!!!");
 
     // console.log(noteForm.value);
-    noteForm.reset();
+    // noteForm.reset();
+    this.router.navigate([""]);
   }
 }
 

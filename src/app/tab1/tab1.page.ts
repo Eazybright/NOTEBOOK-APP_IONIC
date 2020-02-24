@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import { Router } from "@angular/router";
 import { Plugins } from "@capacitor/core";
 
 const { Storage } = Plugins;
@@ -12,10 +12,14 @@ const { Storage } = Plugins;
 export class Tab1Page implements OnInit {
   public myNotes;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   async ngOnInit() {
     const notes = await Storage.get({ key: "notes" });
     this.myNotes = JSON.parse(notes.value);
+  }
+
+  noteDetails(notes) {
+    this.router.navigate(["/note-details", notes.id]);
   }
 }

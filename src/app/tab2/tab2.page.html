@@ -1,13 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      ADD NOTE
+      NOTEBOOK APP
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid class="ion-margin-top">
+  <ion-grid class="ion-margin-top ion-padding">
     <ion-row>
       <ion-col>
         <ion-text>Add your note</ion-text>
@@ -33,7 +36,7 @@
             </ion-item>
 
             <ion-button size="small" type="submit" expand="block" [disabled]="dtitle.invalid || ddesc.invalid"
-              class="button" margin>
+              class="button ion-margin-right">
               <ion-spinner *ngIf="loader"></ion-spinner>
               <ion-icon name="pencil"></ion-icon> Add Note
             </ion-button>
